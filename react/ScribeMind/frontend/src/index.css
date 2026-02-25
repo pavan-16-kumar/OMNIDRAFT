@@ -1,0 +1,349 @@
+@import "tailwindcss";
+
+/* ── Custom Design Tokens ─────────────────────────────────────────── */
+@theme {
+  --color-brand-50: #f0f4ff;
+  --color-brand-100: #dbe4ff;
+  --color-brand-200: #bac8ff;
+  --color-brand-300: #91a7ff;
+  --color-brand-400: #748ffc;
+  --color-brand-500: #5c7cfa;
+  --color-brand-600: #4c6ef5;
+  --color-brand-700: #4263eb;
+  --color-brand-800: #3b5bdb;
+  --color-brand-900: #364fc7;
+
+  --color-accent-400: #66d9e8;
+  --color-accent-500: #3bc9db;
+  --color-accent-600: #22b8cf;
+
+  --color-success-400: #69db7c;
+  --color-success-500: #51cf66;
+  --color-success-600: #40c057;
+
+  --color-warning-400: #ffd43b;
+  --color-warning-500: #fcc419;
+
+  --color-danger-400: #ff8787;
+  --color-danger-500: #ff6b6b;
+  --color-danger-600: #fa5252;
+
+  --color-dark-50: #f8f9fa;
+  --color-dark-100: #f1f3f5;
+  --color-dark-200: #e9ecef;
+  --color-dark-300: #dee2e6;
+  --color-dark-400: #ced4da;
+  --color-dark-500: #adb5bd;
+  --color-dark-600: #868e96;
+  --color-dark-700: #495057;
+  --color-dark-800: #343a40;
+  --color-dark-900: #212529;
+
+  --color-surface: #0f1117;
+  --color-surface-raised: #181b23;
+  --color-surface-overlay: #1e2230;
+  --color-surface-card: rgba(30, 34, 48, 0.7);
+
+  --font-sans: "Inter", "SF Pro Display", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", "SF Mono", monospace;
+}
+
+/* ── Global Resets ────────────────────────────────────────────────── */
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--color-surface);
+    color: var(--color-dark-200);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-dark-600);
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-dark-500);
+  }
+}
+
+/* ── Animations ───────────────────────────────────────────────────── */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(92, 124, 250, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(92, 124, 250, 0.3);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slide-right {
+  animation: slideInRight 0.4s ease-out forwards;
+}
+
+.animate-slide-left {
+  animation: slideInLeft 0.4s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.3s ease-out forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(92, 124, 250, 0.08) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ── Glassmorphism ────────────────────────────────────────────────── */
+.glass {
+  background: rgba(30, 34, 48, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.glass-card {
+  background: rgba(30, 34, 48, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  background: rgba(30, 34, 48, 0.7);
+  border-color: rgba(92, 124, 250, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Gradient Text ────────────────────────────────────────────────── */
+.text-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--color-brand-400),
+    var(--color-accent-400)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Prose Styling for Markdown ───────────────────────────────────── */
+.prose-scribe {
+  color: var(--color-dark-200);
+  line-height: 1.75;
+}
+
+.prose-scribe h1,
+.prose-scribe h2,
+.prose-scribe h3 {
+  color: var(--color-dark-50);
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-weight: 700;
+}
+
+.prose-scribe h1 {
+  font-size: 1.75rem;
+}
+.prose-scribe h2 {
+  font-size: 1.4rem;
+}
+.prose-scribe h3 {
+  font-size: 1.15rem;
+}
+
+.prose-scribe p {
+  margin-bottom: 0.75em;
+}
+
+.prose-scribe ul,
+.prose-scribe ol {
+  padding-left: 1.5em;
+  margin-bottom: 0.75em;
+}
+
+.prose-scribe li {
+  margin-bottom: 0.25em;
+}
+
+.prose-scribe code {
+  background: rgba(92, 124, 250, 0.1);
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  color: var(--color-brand-300);
+}
+
+.prose-scribe pre {
+  background: var(--color-surface);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 1em;
+  overflow-x: auto;
+  margin-bottom: 1em;
+}
+
+.prose-scribe pre code {
+  background: none;
+  padding: 0;
+}
+
+.prose-scribe strong {
+  color: var(--color-dark-50);
+  font-weight: 600;
+}
+
+.prose-scribe blockquote {
+  border-left: 3px solid var(--color-brand-500);
+  padding-left: 1em;
+  color: var(--color-dark-400);
+  font-style: italic;
+  margin-bottom: 0.75em;
+}
+
+/* ── Drop Zone ────────────────────────────────────────────────────── */
+.dropzone-active {
+  border-color: var(--color-brand-500) !important;
+  background: rgba(92, 124, 250, 0.06) !important;
+  box-shadow:
+    0 0 0 4px rgba(92, 124, 250, 0.12),
+    inset 0 0 40px rgba(92, 124, 250, 0.04);
+}
+
+/* stagger animation delays */
+.stagger-1 {
+  animation-delay: 0.05s;
+}
+.stagger-2 {
+  animation-delay: 0.1s;
+}
+.stagger-3 {
+  animation-delay: 0.15s;
+}
+.stagger-4 {
+  animation-delay: 0.2s;
+}
+.stagger-5 {
+  animation-delay: 0.25s;
+}
+
+/* ── Confidence meter ─────────────────────────────────────────────── */
+.confidence-bar {
+  height: 4px;
+  border-radius: 999px;
+  transition: width 1s ease-out;
+}

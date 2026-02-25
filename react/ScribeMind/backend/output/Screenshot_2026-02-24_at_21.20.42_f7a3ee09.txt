@@ -1,0 +1,22 @@
+======================================================================
+  ScribeMind — Extracted Text
+  Source: Screenshot 2026-02-24 at 21.20.42.png
+  Date: 2026-02-24 15:52:10 UTC
+  Note ID: f7a3ee09-4eac-4dfa-a9c9-a33e349d76d3
+======================================================================
+
+# Java Script
+
+- Java Script is a client side Scripting language & it allows creating dynamic webpages.
+
+- Scripting language is used to enhance the features of websites.
+
+- The data which is transtor from client system to server system, in client - server communication controlled with help of Java script.
+
+Need for client side scripting language
+
+- client side scripting language can
+
+======================================================================
+  End of extracted text
+======================================================================

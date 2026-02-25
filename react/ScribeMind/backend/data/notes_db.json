@@ -1,0 +1,44 @@
+{
+  "1dd27619-4760-478f-9ed2-d041b7ba6b20": {
+    "note_id": "1dd27619-4760-478f-9ed2-d041b7ba6b20",
+    "filename": "Screenshot 2026-02-25 at 11.36.07.png",
+    "raw_markdown": "# Materials Management\n\n---\n\nThe average material cost is 64% of the sales value. The only 36% cost is for wages and salaries, overhead and profit, etc.\n\nIn addition to the cost of material 64%, inventory carrying cost be 20% of the material cost. Thus the total material cost will be 77% of the sales revenue [64% plus 20% of 64%]. This shows the importance of materials management.\n\nMaterial Management will increase the productivity of the capital by preventing capital being locked up.\n\n---\n\n## Objectives of Material Management\n\n1.  To reduce material cost which in turn reduce the cost of the product.\n2.  To control inventories efficiently.\n3.  To ensure uniform flow of material.\n4.  To ensure right quality and quantity from right suppliers.\n5.  To ensure maximum utilisation.\n\n---\n\n## Functions of Material Management\n\n1.  Material planning\n2.  Procurement of materials\n3.  Receiving and warehousing\n4.  Storage and store administration\n5.  Inventory control\n6.  Standardisation, simplification and value analysis",
+    "verified_markdown": "# Materials Management\n\n---\n\nThe average material cost is 64% of the sales value. The only 36% cost is for wages and salaries, overhead and profit, etc.\n\nIn addition to the cost of material 64%, inventory carrying cost be 20% of the material cost. Thus the total material cost will be 77% of the sales revenue [64% plus 20% of 64%]. This shows the importance of materials management.\n\nMaterial Management will increase the productivity of the capital by preventing capital being locked up.\n\n---\n\n## Objectives of Material Management\n\n1.  To reduce material cost which in turn reduce the cost of the product.\n2.  To control inventories efficiently.\n3.  To ensure uniform flow of material.\n4.  To ensure right quality and quantity from right suppliers.\n5.  To ensure maximum utilisation.\n\n---\n\n## Functions of Material Management\n\n1.  Material planning\n2.  Procurement of materials\n3.  Receiving and warehousing\n4.  Storage and Store administration\n5.  Inventory control\n6.  Standardisation, simplification and value analysis",
+    "confidence_score": 0.98,
+    "flags": [
+      {
+        "word": "profil",
+        "confidence": 0.75,
+        "suggestion": "profit",
+        "context": "is for wages and salaries, overhead and profil, etc."
+      },
+      {
+        "word": "redelcel",
+        "confidence": 0.75,
+        "suggestion": "reduce",
+        "context": "To reduce material cost which in turn redelcel the cost"
+      },
+      {
+        "word": "mancsement",
+        "confidence": 0.75,
+        "suggestion": "management",
+        "context": "This shows the importance of materials mancsement."
+      },
+      {
+        "word": "adiministration",
+        "confidence": 0.75,
+        "suggestion": "administration",
+        "context": "4. Storage and Store adiministration\n5. Inventory control"
+      },
+      {
+        "word": "analyiss",
+        "confidence": 0.75,
+        "suggestion": "analysis",
+        "context": "6. Standardisation, simplification and value analyiss"
+      }
+    ],
+    "status": "completed",
+    "created_at": "2026-02-25T10:56:44.867275",
+    "image_path": "/uploads/1dd27619-4760-478f-9ed2-d041b7ba6b20.png"
+  }
+}

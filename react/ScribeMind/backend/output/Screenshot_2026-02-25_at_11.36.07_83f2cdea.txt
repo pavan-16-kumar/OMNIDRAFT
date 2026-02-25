@@ -1,0 +1,41 @@
+======================================================================
+  ScribeMind — Extracted Text
+  Source: Screenshot 2026-02-25 at 11.36.07.png
+  Date: 2026-02-25 07:48:37 UTC
+  Note ID: 83f2cdea-bfdd-4ed2-b314-b51d62bb921a
+======================================================================
+
+# Materials Management
+
+---
+
+
+
+In addition to the cost of material 64%, inventory carrying cost be 20% of the material cost. Thus the total material cost will be 77% of the sales revenue [64% plus 20% of 64%]. This shows the importance of materials management.
+
+Material Management will increase the productivity of the capital by preventing capital being locked up.
+
+---
+
+## Objectives of Material Management
+
+1.  To reduce material cost which in turn reduce the cost of the product.
+2.  To control inventories efficiently.
+3.  To ensure uniform flow of material.
+4.  To ensure right quality and quantity from right suppliers.
+5.  To ensure maximum utilisation.
+
+---
+
+## Functions of Material Management
+
+1.  Material planning
+2.  Procurement of materials
+3.  Receiving and warehousing
+4.  Storage and Store administration
+5.  Inventory control
+6.  Standardisation, simplification and value analysis
+
+======================================================================
+  End of extracted text
+======================================================================

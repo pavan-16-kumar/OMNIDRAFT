@@ -1,0 +1,953 @@
+======================================================================
+  ScribeMind — Extracted Text
+  Source: WEB TECHNOLOGY copy.pdf
+  Date: 2026-02-25 06:58:15 UTC
+  Note ID: 3461868e-4c00-4b5e-8ef6-4c47a9668f5e
+======================================================================
+
+## Page 1
+
+```markdown
+UNIT- 4
+
+**Java Script**
+
+- Java Script is a client side Scripting language & it allows creating dynamic webpages.
+
+- Scripting language is used to enhance the features of websites,
+
+- The data which is transfer from. Client System to Server System, in client Server Communication Controlled of with help of Java Script.
+
+Need for client side Scripting:
+
+language
+
+- client side scripting language can be used to make website more interactive.
+
+- It reduces the load on the server machine,
+
+- It Validating all the user input.
+
+- It allows client server programmers to be accessed remotely.
+```
+
+---
+
+## Page 2
+
+and the surred.
+- Client request are sent to the - Surver.
+- Data reterieval from the surver,
+
+Various client side scripting languages
+
+- Thar are various side types of scripting languages given below.
+    - Html
+    - ⚠️incelesrotan⚠️
+    - Javascript
+    - React JS
+    - Angular.
+
+Html Html
+
+It is Markup language not a programming language. It is a most basic language for client surver web programming.
+- Html stands - to hyper text markup language.
+- Hyper text refers to page contain hyper links. Markup language refers to tag to discribe the layout and structure of the document.
+
+Css
+Css - transtor cascading styling sheet.
+- These are used to anabt - the webpage developers add style.
+
+---
+
+## Page 3
+
+- A styles element in webpage.
+- Specifies the presentation of the webpage like color, front, border, font size, margin, padding, height, and width.
+
+**Java Script**
+
+Java Script client side scripting language and it allows creating dynamic webpage. It is light weight and most commonly used has a part of webpage.
+
+- In Java script the special tag `<script>` is used in the head or body section.
+- It is used around 97% of webpage like mozilla firefox, google chrome, Microsoft internet explorer, Microsoft edge, safari and other ⚠️magical⚠️ web - browsers are supported.
+
+**Xhtml**
+
+Xhtml is transistor extensible hyper text markup language & is a clear version of html.
+- It is a next generation of html?
+- It is almost identical to html.
+
+---
+
+## Page 4
+
+*s Combination of html & xml xml
+means extensiable markup language
+
+React JS
+- Facebook - First utilized react JS. to
+inpaore web development there are many
+react JS 191kc whatsapp:, facebook
+Yahoo are examples of react appi
+
+Angular
+Dit is a higher version of Javascript
+and it gaining popularity among devel
+-pers are all over the world
+
+Various operators in Java Script
+
+Operators are the symbols wied Hod
+Perform various operations on operanca
+Java Script supports eight types of
+- Operators this are,
+1. Arithmetic operators
+2. Comparision operators
+3. Logical
+
+4. Assigment
+5. SerString
+6. INTREit - wide
+7. Tamary operators
+8. Typed
+
+---
+
+## Page 5
+
+_Arthemelic Operators_
+
+- Arthemetic operators are used to perform
+mathematical calculations like. Addition,
+Substraction, Multiplication, division & Modulus
+etc
+
+| No. | Operator Name | Example (let x = 6 & y = 2) |
+|---|---|---|
+| 1. | + Addition | x + y ; result = 8 |
+| 2. | - Subtraction | x - y ; result = 4 |
+| 3. | x Multiplication | x * y ; result = 12 |
+| 4. | / Division | x / y ; result = 3 |
+| 5. | % Modulus | x % y ; result = 0 |
+| 6. | ** Exponentiation | x ** y ; result = 36 |
+| 7. | ++ Increment | a = x++ result = 9 = 6 x = 7 b = ++y result = b = 3 y = 3 |
+| 8. | -- decrement | c = x-- result = 6 y = 5 d = --y result = d = 1 y = 1 |
+
+_Assignment Operators_
+
+- Assignment operator are used to assign the values of expression resultand to variables
+
+---
+
+## Page 6
+
+| S.No | Operators | Example | Samcas. | Description |
+|---|---|---|---|---|
+| 1. | `=` | `x = 4` | `x = y` | The lat op ends gets set to the value of th. expression on the appl |
+| 2. | `+ =` | `x += 4` | `x = x + y` | Addition of x & y assigne to x |
+| 3. | `- =` | `x -= 4` | `x = x - y` | Subtraction x & y assigne to x |
+| 4. | `* =` | `x *= 4` | `x = x * y` | Multiplication of x & y assigned to x |
+| 5. | `/ =` | `x /= 4` | `x = x / y` | Division of x & y assigned to x |
+| 6. | `%=` | `x %= 4` | `x = x % y` | Modulus of x & y assigned to x |
+| 7. | `** =` | `x **= 4` | `x = x ** y` | Exponentiation of x & y assigned to |
+
+Program to do Arithmetic operators in Javascript.
+
+```html
+<html>
+<body>
+<h2> Javascript od program on Arithmetic
+to operators </h2>
+```
+
+---
+
+## Page 7
+
+```markdown
+<script>
+let a, b
+a = Number(prompt ("Enter number 1"));
+b = Number(prompt ("Enter number 2"));
+
+_typecasting_
+document.write ("<br> Addition = " + (a+b));
+document.write ("<br> Subtraction = " + (a-b));
+document.write ("<br> Multiplication = " + (a*b));
+document.write ("<br> Division = " + (a/b));
+document.write ("<br> Modulus = " + (a%b));
+document.write ("<br> Exponentiation = " + (a**b));
+document.write ("<br> pre-Increment of Number
+1 = " + ++a);
+document.write ("<br> post-Increment of
+Number 2 = " + b++);
+document.write ("<br> pre-decrement of
+Number 1 = " + --a);
+document.write ("<br> post-decrement of
+Number 2 = " + b--);
+</script>
+</body>
+</html>
+Output:
+Enter number 1
+Enter number 2
+Java script Program on "Arithmetic operation."
+
+Addition = 7
+Subtraction = 3
+Multiplication = 10
+```
+
+---
+
+## Page 8
+
+Dision=2.5
+Modulus = 1.
+-Gxponentiation = 25.
+Pre increment = 6
+Post increment = 2
+Pre decrement = 9
+Post decrement = 2.
+Java script program to demo strate the
+Concept of Assignment operators.
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1> Java Script Program on Assignment operators</h1>
+<script>
+let a = 2;
+let b = 3;
+document.write ("<br> a ="+a);
+document.write ("<br> b ="+b);
+document.write ("<br> a += 1 ="+ (a+=1));
+document.write ("<br> b -= 1 ="+ (b-=1));
+document.write ("<br> a *= 1 ="+ (a*=1));
+document.write ("<br> a /= 1 ="+ (a/=1));
+document.write ("<br> a %= b ="+ (a%=b));
+document.write ("<br> a **= b ="+ (a**=b));
+</script>
+</body>
+</html>
+
+---
+
+## Page 9
+
+```markdown
+```html
+</script>
+</body>
+</html>
+```
+
+Output:
+Java Script program on assignment
+Operators
+
+```
+a = 2
+a += 1 => 3
+b -= 1 => 2
+a *= a => 6
+a /= a => 3
+a %= a = 1
+a **= a = 8
+```
+
+**Logical Operators**
+
+Logical operators are used to next the logic between the variables or values and written through the true or false as the result.
+
+| S.No | Operator | Operator Name | Example | Result |
+|---|---|---|---|---|
+| 1. | `&&` | Logical AND | `x && y` | True if both x & y are true. |
+| 2. | `||` | Logical OR | `x || y` | True if either x or y is true |
+| 3. | `!` | Logical Not | `!x` | True if x is not true. |
+```
+
+---
+
+## Page 10
+
+Javascript program to demonstrate the
+Concept of logical operators:--
+
+<!DOCTYPE.html>
+<html>
+<body>
+Chi> Javascript program on logical oper
+dhi>
+
+<script>
+let x=6;
+let y = 3;
+document.write ("</br> x <= 10 && y <= 1 = "
++(x<=10 && y <=1));
+document.write ("</br> x <= 10 || y <=1 = "+ (x<=10 || y<=1));
+document.write ("</br> ! (x==y) = " + (!(x==y)))
+</script>
+</body>
+</html>.
+
+Output:
+Java Script program on logical operators
+x <= 10 && y <=1 = false
+x <= 10 || y <=1 = true
+! (x == y) = true
+
+Javascript Program demonstrate the
+Concept of Bitwise operators
+[Diagram]
+
+---
+
+## Page 11
+
+```markdown
+<!DOCTYPE html>
+<html>
+<body>
+<hi> JavaScript program on Bitwi's
+operation. </hi>
+<script>
+let x = 6;
+let y = 3;
+document.write "<br> x&y = " + (x&y));
+document.write "<br> x|y = " + (x|y));
+document.write "<br> ~x = "+(~x));
+document.write "<br> x^y = "+(x^y));
+document.write "<br> x>>1 ="+(x>>1));
+document.write "<br> y<<1 = " + (y<<1)); (y>>1));
+</script>
+</body>
+</html>
+
+Output:
+
+Javascript program on Bitwise operation
+* x & y
+x | y = 7
+~x
+x ^ y = 5
+x << 1 = 12
+y >> 1 = 1
+```
+
+---
+
+## Page 12
+
+Bitwise operators:
+are used to perform the operation at bits level.
+
+Before a bitwise operation is Performed Javascript converts numbers to 32 bits signed integers and then perform the operation.
+-After the bitwise operation is performed the result is converted back to 64 bits Javascript numbers.
+
+| No. | Operator | Description | Example | Same as | Result (Binary) | Result (Dec) |
+|---|---|---|---|---|---|---|
+| 1. | `&` | Bitwise AND | 5&3 | 0101 & 0011 | 0001 | 1 |
+| 2. | `\|` | Bitwise OR | 4\|1 | 0100 \| 0001 | 0101 | 5 |
+| 3. | `~` | NOT | ~2 | ~0010 | 1101 | 13 |
+| 4. | `^` | XOR | 5^1 | 0101 ^ 0001 | 0100 | 4 |
+| 5. | `<<` | left shift | 4<<1 | 0100 << 1 | 1000 | 8 |
+| 6. | `>>` | right shift | 5>>1 | 0101 >> 1 | 0010 | 2 |
+
+---
+
+## Page 13
+
+# Comparison operators: Comparison operators
+are used to compare two values and
+returns true or false as result.
+
+| Operator | Operator Name | Example (let x = 10) | Result |
+|---|---|---|---|
+| 1. `<` | less than | x < 10 | False |
+| 2. `<=` | less than or Equal to | x <= 10 | True |
+| 3. `>` | Greater than | x > 5 | True |
+| 4. `>=` | Greater than or equal to | x >= 5 | False |
+| 5. `==` | Equal to | x == 5 x == 10 | False/True |
+| 6. `!=` | Not equal to | x != 5 | True |
+
+Javascript Program to demonstrate the concept of Comparison operators:
+
+```html
+<!DOCTYPE html>
+<html>
+<body>
+<h2> Javascript program on Comparison operators </h2>
+<script>
+let a = 2;
+let b = 3;
+document.write ("a=" + a + ", b=" + b);
+document.write ("<br> a less than b =" + (a < b));
+```
+
+---
+
+## Page 14
+
+documen. write (`<br>` a less than or Equal to b = " + (a<=b));
+document. write (`<br>` a greater than b = " + (a > b));
+document. write (`<br>` a greater than or equal to b = " + (a >= b));
+document. write (`<br>` a is equal to b = " + (a == b));
+document. write (`<br>` a is not equal to b = " + (a != b));
+```html
+</script>
+</body>
+</html>
+```
+Output:
+Javascript Program on Assignment
+operators
+a=2 b=3
+a less than b: true
+a less than or equal to b = true
+a greater than b = false
+a greater or equal to b = false
+a is equal to b = false
+a is not equal to b: true
+
+Ternary operator:- Ternary operator is also called as Conditional operator
+at assign a value to the variable, or execute one expression among two.
+based on the result of test (Condition).
+
+---
+
+## Page 15
+
+| Operator | Syntax | Description | Example |
+|---|---|---|---|
+| `?` | `exp1 ? exp2 : exp3` | If the result of `exp1` is true returns `exp2` as result else if return `exp3` as result `0`. | `x=2>3` `2+3` `2*3` results `J=6` |
+
+```html
+<!-- Javascript program to demonstrate the concept of ternary operator -->
+<!DOCTYPE html>
+<html>
+<body>
+<h1> Javascript Program on ternary operator </h1>
+<script>
+let a = 2;
+let b = 3;
+document.write ("<br> number 1 = " + a);
+document.write ("<br> number 2 = " + b);
+document.write ("<br> Biggest number = " + (a > b ? a : b));
+</script>
+</body>
+</html>
+```
+
+Output:
+Javascript Program on ternary operator.
+- Number 1 = 2
+- Number 2 = 3
+- Biggest Number = 3
+
+---
+
+## Page 16
+
+```markdown
+Type operators
+
+| S.No | Operator | Description | Example |
+|---|---|---|---|
+| 1. | Type of | Returns the type of "John" type of a variable | `// Returns string` `type of 33` `// Returns number` `type of false` `// Returns boolean` |
+
+Conditional Statements in Javascript:
+
+Conditional statements are used to perform different actions based on different conditions.
+
+In Javascript we have the following four Conditional statements:
+
+1) `if` statement 2) `if else` statement
+3) `else if` statement 4) `switch` statement
+
+Here are the Conditional statements in Javascript:
+
+`If` statement: - Used to execute a block of code if a condition is true.
+
+`if (condition) {`
+`// code to be executed`
+`}`
+
+E = mc²
+E = rodmun
+E = rodmun trappist
+```
+
+---
+
+## Page 17
+
+of _if-else_ statement :- used to execute
+a blocks of code if a condition as
+true, and another block of code if
+the condition as false
+
+if (Condition){
+|| code to be executed if condition as
+true.
+} else {
+|| code to be executed if condition as
+false
+}
+
+of _if-else if_ statement :- used to
+Check multiple conditions and executed
+different block if code is
+if (Condition){
+|| code to be executed if Condition 1 as
+true
+} else if (Condition 2) {
+|| code to be executed if condition 1
+as false and condition 2 as true
+} else {
+|| code to be executed if all condition
+are false
+}
+
+of _Switch_ statement :- Used to execute
+different blocks of code based on
+different cases.
+
+---
+
+## Page 18
+
+```markdown
+Switch (expression) {
+Case value 1:
+// Code to be executed at expression
+Matches value 1
+break;
+
+Case value 2:
+// code to be executed and expression
+matches value 2.
+break;
+
+default:
+// code to be executed and expression does
+not match any value.
+}
+
+Nested if else statement: When if
+block or else block contains another if
+statement or if else statement then the
+Construct is said to be "Nested if else
+Statement!
+
+Syntax of nested if else statement is
+given below:-
+
+if (expression 1)
+{
+if (expression 2)
+{
+if (expression 3)
+Statement block-1;
+}
+else
+{No based abas to ⚠️unclear_word⚠️}
+Statement block-2;
+```
+
+---
+
+## Page 19
+
+```markdown
+}
+}
+else
+{
+if (expression - 3)
+{
+Statement block - 3;
+}
+else
+{
+Statement block - 4;
+}
+}
+
+*   Write a Javascript program to determine whether the number is "even or odd" using if statement :-
+
+```html
+<html>
+<body>
+<script>
+var n = 100;
+if (n % 2 == 0)
+{
+  document.write ("Even number");
+}
+if (n % 2 != 0)
+{
+  document.write ("odd number");
+}
+</script>
+</body>
+</html>
+```
+
+Output!
+[Box] - Even number.
+```
+
+---
+
+## Page 20
+
+= Write a Javascript program to determine whether the number is even or odd by using if else statement :-
+```html
+<html>
+<body>
+<script>
+Var n=100;
+if(n%2 == 0)
+{
+document.write ("Even number");
+}
+else
+{
+document.write ("odd number");
+}
+</script>
+</body>
+</html>
+```
+Output:
+[Box containing "Even number"]
+
+= Write a JavaScript Program to find largest number among three numbers by using if else statement :-
+```html
+<html>
+<body>
+<script>
+var largest;
+var a=10;
+var b= 20;
+var c= 30;
+```
+
+---
+
+## Page 21
+
+at (a>b)
+{
+at (a>c)
+{
+document.write ("a is largest");
+}
+else
+{
+document.write ("c is largest");
+}
+}
+else
+{
+at (b>c)
+{
+document.write ("b is largest");
+}
+else
+{
+document.write ("c is largest");
+}
+}
+</script>
+</body>
+</html>
+Output:
+[Box containing "c is largest"]
+
+of else at ladder statement :- The else
+at ladder statement is used when there are many choices (condition) and control has to select one choice among all jobs
+
+---
+
+## Page 22
+
+= Syntax of else if ladder statement as :-
+
+if (Condition -1)
+Statement - 1;
+else if (Condition - 2)
+Statement - 2;
+else if (Condition -3)
+Statement - 3;
+else if (Condition N)
+Statement N;
+else
+default Statement;
+
+= Write a Javascript program that reads number of week day and Prints respective day by using else if at ladder statement :-
+
+```html
+<html>
+<body>
+<script>
+var day =2;
+if (day == 1)
+document.write (" sunday ");
+else if (day == 2)
+document.write ("Monday");
+else if (day == 3)
+document write ("Tuesday");
+else if (day == 4)
+document write ("Wednesday");
+```
+
+---
+
+## Page 23
+
+else if (day == 5)
+document.write ("Thursday");
+else if (day == 6)
+document.write ("Friday");
+else if (day == 7)
+document.write ("Saturday");
+else
+document.write ("Invalid day");
+<script>
+</daybody>
+</html>
+
+Output:
+[Monday]
+
+se write a Javascript program that
+reads number of weak days, and
+Prints respective day by using
+Switch Statement :-
+
+<html>
+<body>
+<script>
+var day=9;
+Switch (day)
+{
+Case 1:
+document.write ("sunday ");
+break;
+Case 2;
+document.write ("Monday");
+
+---
+
+## Page 24
+
+break;
+Case 3:
+document.write ("Tuesday");
+break;
+Case 4:
+document.write ("Wednesday");
+break;
+Case 5:
+document.write ("Thursday");
+break;
+Case 6:
+document.write ("Friday");
+break;
+Case 7:
+document.write ("Saturday");
+break;
+default:
+document.write ("Invalid day");
+break;
+</script>
+</body>
+</html>
+
+Output:
+[Box around the word Monday]
+Monday.
+
+---
+
+## Page 25
+
+# Loops:
+Iterative statements | Repetitive statements
+
+- Executing one or more statements, repeated is called looping.
+- A loop is used to execute some code many number of times.
+Iterative statements / loop in Javascript.
+Javascript language supports three
+- types of iterative loop structure
+- They are:
+
+(a). While Iterative statement in Javascript.
+
+While loop: In while loop initially the condition is checked & if it is true - then only loop statements will be executed.
+The syntax general form of the while loop is:
+
+while (expression)
+{
+statement 1;
+statement 2;
+}
+
+⚠️statement_Nha⚠️ ⚠️should⚠️ ⚠️pllaptisF⚠️
+⚠️I⚠️ ⚠️batauxxs⚠️ ⚠️andinda⚠️ ⚠️p⚠️ ⚠️ols⚠️ ⚠️ala⚠️
+⚠️thanom⚠️ ⚠️statement⚠️ ⚠️ho⚠️ ⚠️notussxs⚠️ ⚠️callies⚠️
+Not statement.
+
+---
+
+## Page 26
+
+Write a Javascript program to find the sum of first 10 Natural numbers
+
+```html
+<html>
+<body>
+<script>
+var Sum;
+Sum = 0;
+i = 1;
+while (i <= 10) {
+  Sum = Sum + i;
+  i++;
+}
+document.write("The Sum: " + Sum);
+</script>
+</body>
+</html>
+```
+
+Output: The Sum is 55
+
+b) DO-while iterative statement in Javascript:
+
+DO-while loop: In do-while loop, initially the blocks of statements are executed & after execution of only the condition. There statements.
+
+---
+
+## Page 27
+
+The Symbol - General form of the do-
+while loop is.
+
+```
+do
+{
+  Statement 1;
+  Statement 2;
+  Statement N;
+}
+while (Expression);
+next statements;
+```
+
+Write a Javascript program to find the sum of first 10 natural numbers.
+
+```html
+<html>
+<body>
+<script>
+var sum;
+sum = 0;
+i = 1;
+do
+{
+  sum = sum + i;
+  i++;
+}
+while (i <= 10);
+document.write ("The sum is " + sum);
+</script>
+</body>
+</html>
+```
+
+Output: The sum is 65.
+
+---
+
+## Page 28
+
+c) for _Iterative_ statements:
+
+- for loop: The for loop consist of three expression in it.
+
+The first expression:- Is called Intialisation expression & is used to check wheather the loop is to be continued or not;
+
+The third expression:- Is called the second Condition expression & is used to check wheather the loop is to be continued or not;
+
+The third expression:- (Increment/decrement) is used to change index value for the next iterations the
+
+Syntax (General form for loop is:
+for (expression 1; expression 2; expression 3).
+
+```
+{
+  statement 1;
+  statement 2;
+  ...
+  statement N;
+}
+```
+[Diagram of code structure]
+
+Write a program JavaScript to find the sum of first 10 natural numbers.
+
+---
+
+## Page 29
+
+# Statements:-
+- for loop consist of
+- in 91
+- tion:- is called
+- tion & is used to
+- loop & to be
+
+- tion:- is called the
+- & is used to
+- loop Purto be
+- ot;
+- tion:- Cancrement/
+- used to change Index
+- + iterations the ⚠️pback's⚠️
+- form-for loop is.
+- expression is mue
+- 3).
+
+```html
+<html>
+<body>
+<script>
+var Sum;
+Sum=0;
+for (i=1; i<=10; i++)
+{
+Sum = Sum + i;
+}
+document.write ("The sum is" + Sum);
+</script>
+</body>
+</html>
+```
+
+Output:
+⚠️without_the_sum⚠️ (is 55)
+
+[Triangle shape]
+
+Op loandard phasels
+
+Javascript, to Hind
+first 10</alatur al
+
+======================================================================
+  End of extracted text
+======================================================================

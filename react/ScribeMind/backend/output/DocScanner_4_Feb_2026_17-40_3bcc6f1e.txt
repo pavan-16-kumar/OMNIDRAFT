@@ -1,0 +1,499 @@
+======================================================================
+  ScribeMind — Extracted Text
+  Source: DocScanner 4 Feb 2026 17-40.pdf
+  Date: 2026-02-25 07:06:16 UTC
+  Note ID: 3bcc6f1e-55ba-4da8-80f0-9d2ca73731ef
+======================================================================
+
+## Page 1
+
+# 3 MATERIALS MANAGEMENT
+3. ①
+
+
+
+In addition to the cost of mate-
+rial 64%, inventory carrying cost
+be 20% of the material cost. Thus
+the total material cost will be 77% of
+the sales revenue [64% plus 20% of 64%]
+This shows the importance of materials
+management.
+
+Material Management will increase
+the productivity of the capital by pre-
+venting capital being locked up.
+
+1. To reduce material cost which in
+turn reduces the cost of the product.
+2. To control inventories efficiently
+3. To ensure Uniform flow of material
+4. To ensure right quality and right
+quantity from right suppliers.
+5. To ensure maximum Utilisation.
+
+Functions of material management.
+
+1) Material planning
+2) procurement of materials
+3) Receiving and warehousing
+4) Storage and Store administration
+5) Inventory control
+6) Standardisation, Simplification and
+Value analysis
+
+---
+
+## Page 2
+
+3. 2
+
+**Inventory Control:** It is a detailed list of movable goods and their control such as raw materials, materials in process, finished products and equip ments which are necessary to manufacture a product. So it a techni-que of maintaining inventories at appropriate level is knows as inventory control.
+
+**Importanic of Materials Management**
+1. It ensures smooth production flow
+2. It increased Inventory turnover
+3. It improves the quality of the product
+4. It reduces the total production cost.
+5. It uses working capital effectively
+6. It uses available resources efficiently
+7. It reduces Storage space.
+
+**Reasons for maintaining inventories**
+1. To stabilise production
+2. To get price discounts
+3. To meet demand in time of fluctuations in prices, supply.
+4. To prevent loss of orders
+5. pare with market conditions.
+
+---
+
+## Page 3
+
+```markdown
+Inventory control techniques 3.(3)
+1. ABC analysis
+2. System of Re-ordering
+3. Economic Order Quantity[EOQ]
+
+1. ABC analysis also known as
+**Always Better Control:**
+
+ABC analysis is meant
+for relative inventory control in
+which maximum attention can
+be given to costly items and
+a fair attention can be given to
+medium valued items and the
+attention for low value items is
+routine. This policy can be app
+-lied in various other aspects of
+materials management such as
+purchase, Sales, inspection, invento
+-ry control, store keeping, etc.,
+
+[ABC analysis graph with axes labeled "% of inventory cost" and "PERCENT OF ITEMS".  The graph shows three sections labeled A, B, and C.]
+
+**A-class Items:** These are high Valued
+but are limited in number. They constitute
+10% of items in number but the cost is
+70%. of total inventory cost. So there need
+careful and close inventory Control.
+
+**B-Class Items:** These constitute 20% of
+the total items and 20% of total inven
+tory cost. These need moderate control.
+safety stock of up to 3 months may be kept.
+```
+
+---
+
+## Page 4
+
+- class Items: These are low val
+-ued, but maximum in number.
+It constitute 10% of total inventory
+Cost bout 70% of the total items in
+number. These do not need close
+control like Bolts, nuts, washers,
+pins, etc... More can be purchased
+at an instant.
+
+Advantages of ABC- Analysis
+1. It concentrate in areas which
+need genuine control
+2. It is most effective and econe
+mical method
+3. It helps in placing orders
+4. It decides the quantity to be
+purchase
+5. It saves Unnecessary Stock-out
+or surpluses.
+
+System of Re-ordering: The Inventory
+control technique which finds when to
+place orders and for how much quantity
+is the systems of reordering.
+The level of material at which
+new order is placed for want to material
+is called Re-order Level.
+The time taken by the material
+to reach the industry after planting
+Orders is called lead tim
+
+[Diagram of Inventory Level vs Time with lines showing inventory decreasing and increasing. Points marked as P & R]
+
+At point P. the material is exhausted
+even befor new order has allived
+
+---
+
+## Page 5
+
+3. 5
+During period Pa, the raw material is not available and production stopp-ed.
+At point R the new order has arri-ved earlier than the material is exhausted which increase inventory cost.
+In order to compensate this type of Imbalance of stock, the minimum buff-er (safety) Stock is always maintained to meet such Unexpected fluctuations
+
+[Graph showing inventory level vs time. The graph shows a sawtooth pattern, with the inventory level increasing linearly with time until it reaches a maximum, then dropping sharply to a minimum. The x-axis is labeled "Time" and the y-axis is labeled "Inventory level". Key points are marked as "Max Stock", "Re-order level", "Mini Stock", "Buffer stock or Safety stock", "Lead time", and "Cycle time".]
+
+Total procurement = Number of * procurement cost per year
+orders placed cost per
+in a year order
+procurement cost = A/Q * P
+Q = Economic Order Quantity (EOQ)
+A = Total items consumed per year
+P = procurement cost per order
+C = Inventory Carrying Cost per Unit
+Inventory carrying = Average * Annual
+cost per year Inventory
+Inventory carrying
+cost per unit
+
+Inventory carrying = Q/2 * C
+Total cost = A/Q * P + Q/2 * C
+= √(2AP/C)
+
+---
+
+## Page 6
+
+```markdown
+3.(6)
+
+# Economic order Quantity [EOQ]
+
+Economic Order Quantity [EOQ] is the quantity of material to be ordered and purchased which is economically profitable.
+
+In determining EOQ, two costs will be consider
+
+1) procurement cost or Ordering cost [A/XP]
+2) Inventory carrying cost [Q/2 x C]
+
+The economic order quantity is obtained by the quantity whose procurement cost is equal to inventory carrying cost.
+
+Total cost is the addition of procurement cost and carrying cost.
+
+Total cost is minimum at Point A, and A' represents EOQ.
+
+[Graph showing Total cost (c+p), Inventory carrying cost, procurement cost P, EOQ Order Quantity]
+
+Total cost = procurement cost + Inventory carrying cost
+
+Total cost = A/XP + Q/2 XC = √2APC
+
+Total cost is minimum when procurement cost = Inventory carrying cost
+
+AP/a = Q/2 XC
+Q² = 2AP/C
+```
+
+---
+
+## Page 7
+
+3.  7
+Economic Order Quantity Q= √(2AP/C)
+
+Find the economic order quantity
+If Average annual demand=30000 units
+Inventory carrying cost = 12% of the unit
+Value per year, cost of placing an order=Rs.70
+cost of each unit = Rs. 2.
+
+So) CASE 1st A= 30,000 Units
+C = 12% of Unit Value
+= 12x2 = (12x2)/100 = Rs.0.24
+P= Rs.70
+
+EOQ= √(2AP/C) = √(2x30000x70/0.24)
+= 4184 Units
+Economic order Quantity EOQ=4184 Units
+
+A=20 Units/year
+P=Rs.40
+cost of each unit = Rs.100
+cost of carrying Inventory = 0.16
+Lead time L= 3 months
+Inventory carrying cost c= 0.16x100=16
+
+EOQ= √(2AP/C)
+C= Rs.16
+= √(2x20x40/16) = 10 units
+
+Re-order point = lead time x Annual
+consumption per month
+= (3x20)/12 = 5 Units
+
+---
+
+## Page 8
+
+3.Q
+Q. Annual demand of a particular product is 18,000 units. Ordering cost is Rs. 400 per order. Inventory carrying cost is Rs 1.20 per unit per year. Cost per unit is Rs 1.00.
+Assume no shortages, determine.
+a) EOQ
+b) Number of orders per year
+c) Time b/t orders
+d) Total inventory cost
+e) Total annual cost
+
+Sol: Given A = 18000 units/year
+P = Rs 400 per order
+C = Rs 1.20 per unit per year
+
+a) EOQ, Q = √2AP/C = √(2 * 18000 * 400)/1.2
+
+Q = 3464 units
+
+b) Number of orders per year = A/Q = 18000/3464 =
+
+c) Time between orders = Q/A = 3464/18000 year
+= (3464 * 365)/18000 = 70 days
+
+d) Total cost = √2APC = √(2 * 18000 * 400 * 1.2)
+= 4156.9 say Rs 4157 per year
+
+e) Total annual cost = 18000 * 1 + 4157 = Rs. 22157/-
+
+---
+
+## Page 9
+
+```markdown
+3.  (9)
+
+**Stores and Store Management:**
+
+Unworked material is known as stores
+and the place where it is housed is called
+"Store Room"
+Finished products are called stock
+and the place where they kept is "stockroom"
+Material control concerned with physical
+storage of goods is known as storekeeping
+
+**Types of Stoves:**
+
+1.  Raw materials stores
+2.  Consumable stores
+3.  Inflammable stoves like petrol, kerosene,
+4.  Chemical stores like carbide, H₂SO₄, etc;
+5.  Machinery and equipment stoves.
+6.  Inspection and **tests** measuring Instruments
+7.  Finished and packages stoves
+
+**Stores Organisation**
+
+[Diagram showing a hierarchy: General Manager Materials Management at the top, then Stores superintendent, then Store keeper, then Store ASSE, then workers]
+
+Store keeper is very important in the Organisation and is responsible for the articles in his charge. He will take steps to reduce wastage and thefts.
+```
+
+---
+
+## Page 10
+
+3.(10)
+Stores location: While locating the
+stores the size of the industry to
+which it is attached is taken into
+account. Stores may be located as.
+1. Centralised stores 2) Decentralised stores
+1. Centralized Stores: If there are several
+manufacturing departments, the store
+room is situated near to all depart
+ments to reduce manual work.
+2. Decentralised Stores: In large fac
+-tories there are several departments,
+each using a different type of materials.
+It becomes beneficial to separate the
+stores. It is known as decentralised stores
+
+Functions of stores department and
+Duties of a store keeper.
+1. To get all kinds of materials and
+equipments from the camps.
+2. To ensure a regular supply of materials
+to the stores.
+3. To check stores to make sure they
+are in good order.
+4. To keep stock systematically
+5. To issue the items to authorised
+requests.
+6. To ensure each item stored in correct
+place.
+7. To verify the bin cards.
+8. To send day-to-day report to
+warehouse.
+9. To update the records.
+
+---
+
+## Page 11
+
+3.(II)
+
+**Stores Layout:** Stores layout plays **Store records:**
+an important role in the systematic
+arrangement of materials and finish 1. Inward and Outward Register
+-ed products. The physical arrangement
+of storage allows efficient receiving, 2. Stock Register
+Storage is known as store layout. 3. Daily Receipt Register
+Considerations for layout of stores. 4. Material Issue Register
+5. Surplus Register
+1) It minimize handling and transporta- 6. Suspense Register
+tion costs.
+7. Loan or Lending register
+2) Storage and receive of materials 8. Empties and packages Register
+Should be near to the point of use.
+9. Condemned items Register.
+3) materials must be accessible to mate-
+rial handling equipment and personnel 10. Other Register.
+4) Storage space should be well protected a) Packing slip/invoice b) Goods return slip
+5. Shelves, racks, bins, etc should be c) Goods return slip d) product requisition
+Clearly specify e) Container card f) Bill of lading
+h) excise record
+
+---
+
+## Page 12
+
+Stores Equipment: To use stores more 5. Stock Racks with drawers: These consist
+of several drawers with locked facility
+to store valuable items.
+economically, systematically and efficie
+ntly the store-keeper must arrange the
+materials by using store equipment.
+It helps to identify and locate material 6. Pallets: pallets are specially designed
+The following equipment are used in stored to facilitate material handling by fore-
+lifts, conveyors, pallet trucks, etc.,
+1. Open Shelves: These shelves are suita
+ble for screws, bearings, components, etc.,
+BIN CARD: Bin cards usually show the
+2. Closed Shelves: Closed shelves are used
+quantities of each type of material re-
+for storing packed goods, loose items, ceived, issued and available on hand.
+such as bolts, nuts, hand tools, pipes, etc.,
+The card is placed in a bin or hung over
+3. Open Removable Bins: These are placed the bin so it is known as bin card. Separate
+near the entrance for frequent use. cards are prepared for each item in stores.
+It contain washers, screws, rivets, etc.)
+It contain information about:
+4. Heavy material Racks: It is for
+1. Material code
+4. maximum level
+heavy gauge steel, conserve heavily 2. Material description 5. minimum level
+loaded materials.
+3. location
+6. Re-order level, etc.
+
+---
+
+## Page 13
+
+3. (13)
+
+**Carden Method:** The most popular manual check-in method for materials is Cardex. It refers to the cards that store detailed information about materials or components. Cardex provides a quick and easy way to record and retrieve materials. The cardex unit itself a compact cabinet with about 15 drawers and each drawer can hold up to 60 individual cardex cards. So each cardex unit can contain information about 900 materials.
+
+It contain information about:
+a) What should be purchased
+b) by whom should it be made
+c) at what rate
+d) when the material be delivered?
+
+**Purchasing Management:**
+Purchasing is the procurement of goods or services from an external supplier. The main purpose of purchasing department is to arrange the supply of materials, spare parts and services for manufacturing products. So more attention should be paid to the economical and systematic procurement of materials.
+
+**Objectives of purchasing Department:**
+1. To get right material in time.
+2. Must suitable material for quality proc
+3. To get quality services at low cost.
+4. To ensure a continuous flow of materials.
+5. Ensures reliable sources of supply.
+6. To ensure better profit margins.
+
+---
+
+## Page 14
+
+# Functions of purchasing Department:
+
+1.  preparation of the purchasing budget.
+2.  To ensure the timely purchase of material
+3.  Finding and selecting qualified souries of supply.
+4.  Review purchase offers and deciding the purchase method.
+5.  Initiation and monitoring the procurement process.
+6.  Incoming material inspection and timely return the defective
+7.  Obtain supplier invoices for payment.
+8.  Advising the management on related issues, and agreements.
+
+3.  14
+purchasing procedure:
+
+The main task of the purchasing department is to proure the materials according to the requirements of the production department. For this, the purchasing department has to follow certain procedures. The following are the common.
+
+1.  Take Material purchase request from various departments, especially from production department.
+2.  Check the list of material required and budget availability.
+3.  Selection of procurement method
+4.  Submit the request and selected procurement method.
+
+---
+
+## Page 15
+
+3.(15)
+
+_purchase Records_: Generally, purchase department maintain the following records.
+5. Obtaining quotations from various Suppliers.
+6. preparation of Comparative statement
+7. Negotiations from potential supplier
+8. Signing the contact and place the order with whom offered the best.
+9. Checking the invoice with receiv-ed ordered materials.
+10. Address the possible deviations and rejections
+11. payment to the suppliers and Maintain records and files.
+12. purchase Requisition form: It is a document given to the purchasing department for the purchase of certain materials.
+13. Request for Quotation: The company publishes request for quotations from a group of selected suppliers to compare prices and offers.
+14. Suppliers Quotations: It is a document from a potential Supplier that- States cost of goods, Services, terms and conditions, payment and warranty, etc',
+
+---
+
+## Page 16
+
+3.16
+4. Comparative Statement: After
+opening all the quotations. Bids are
+reviewed against the terms of price
+5. purchase orders A purchase order
+is a Commercial Source document cre
+ated by the purchasing department.
+6. Invoice: An Invoice is a document
+related to the Sales transaction given
+by the seller to the ⚠️quote⚠️ by buyer.
+The Supplier Usually despatches the
+invoice along with materials for
+payment.
+
+======================================================================
+  End of extracted text
+======================================================================
