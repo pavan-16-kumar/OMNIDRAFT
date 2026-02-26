@@ -95,6 +95,13 @@ export async function chatWithNotes(query, noteId = null) {
   return response.data;
 }
 
+export async function fetchChatSuggestions(noteId = null) {
+  const response = await api.get('/chat/suggestions', {
+    params: { note_id: noteId },
+  });
+  return response.data;
+}
+
 // ── Health ────────────────────────────────────────────────────────────────────
 
 export async function checkHealth() {

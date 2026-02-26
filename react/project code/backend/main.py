@@ -7,23 +7,27 @@ RAG-powered chat, and multi-format document export.
 
 from __future__ import annotations
 
-import asyncio
-import json
-import logging
 import os
 import re
 import shutil
 import uuid
+from pathlib import Path
+
+# ── Environment ───────────────────────────────────────────────────────────────
+from dotenv import load_dotenv
+# Explicitly load .env before importing any local modules that may depend on it
+env_path = Path(__file__).parent / ".env"
+load_dotenv(dotenv_path=env_path, override=True)
+
+import asyncio
+import json
+import logging
 from datetime import datetime
 from io import BytesIO
-from pathlib import Path
 from typing import Optional
 
 from pydantic import BaseModel
-
 import edge_tts
-
-from dotenv import load_dotenv
 from fastapi import FastAPI, File, HTTPException, Query, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import Response, JSONResponse
@@ -41,12 +45,10 @@ from models.schemas import (
 from services.export_service import export_note
 from services.image_processor import extract_images_from_pdf, preprocess_image
 from services.ocr_agent import transcribe_image
-from services.rag_service import chat_with_notes, delete_note_embeddings, ingest_note
+from services.rag_service import chat_with_notes, delete_note_embeddings, ingest_note, get_chat_suggestions
 from services.verifier_agent import verify_transcription
 
 # ── Config ─────────────────────────────────────────────────────────────────────
-
-load_dotenv(override=True)
 
 logging.basicConfig(
     level=logging.INFO,
@@ -445,6 +447,17 @@ async def chat(request: ChatRequest):
     except Exception as e:
         logger.error("Chat failed: %s", e, exc_info=True)
         raise HTTPException(500, f"Chat failed: {str(e)}")
+
+
+@app.get("/chat/suggestions", tags=["RAG"])
+async def chat_suggestions(note_id: Optional[str] = Query(None)):
+    """Get smart suggestions for questions to ask the chat assistant."""
+    try:
+        suggestions = await get_chat_suggestions(note_id)
+        return {"suggestions": suggestions}
+    except Exception as e:
+        logger.error("Suggestions failed: %s", e)
+        return {"suggestions": []}
 
 
 # ── Text-to-Speech (edge-tts — Microsoft Neural, FREE & UNLIMITED) ────────────

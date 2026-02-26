@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { MessageCircle, Send, Loader2, Bot, User, Sparkles, X, Minimize2, Maximize2 } from 'lucide-react';
-import { chatWithNotes } from '../api/client';
+import { chatWithNotes, fetchChatSuggestions } from '../api/client';
 
 export default function ChatSidebar({ activeNoteId }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,6 +14,8 @@ export default function ChatSidebar({ activeNoteId }) {
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [suggestions, setSuggestions] = useState([]);
+  const [isFetchSuggestionsLoading, setIsFetchSuggestionsLoading] = useState(false);
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
 
@@ -22,11 +24,38 @@ export default function ChatSidebar({ activeNoteId }) {
   }, [messages]);
 
   useEffect(() => {
-    if (isOpen) inputRef.current?.focus();
-  }, [isOpen]);
+    if (isOpen) {
+      inputRef.current?.focus();
+      loadSuggestions();
+    }
+  }, [isOpen, activeNoteId]);
+
+  const loadSuggestions = async () => {
+    setIsFetchSuggestionsLoading(true);
+    try {
+      const data = await fetchChatSuggestions(activeNoteId);
+      setSuggestions(data.suggestions || []);
+    } catch (err) {
+      console.error('Failed to load suggestions:', err);
+    } finally {
+      setIsFetchSuggestionsLoading(false);
+    }
+  };
+
+  const handleSuggestionClick = (suggestion) => {
+    setInput(suggestion);
+    // Auto-send if it's a suggestion
+    setTimeout(() => {
+      handleSendWithContent(suggestion);
+    }, 100);
+  };
 
   const handleSend = async () => {
-    const query = input.trim();
+    await handleSendWithContent(input);
+  };
+
+  const handleSendWithContent = async (content) => {
+    const query = content.trim();
     if (!query || isLoading) return;
 
     const userMsg = { role: 'user', content: query };
@@ -69,7 +98,7 @@ export default function ChatSidebar({ activeNoteId }) {
     return (
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 z-50 p-4 bg-gradient-to-br from-brand-500 to-brand-700 text-white rounded-2xl shadow-2xl shadow-brand-500/25 hover:shadow-brand-500/40 hover:scale-105 transition-all duration-300 group"
+        className="fixed bottom-6 right-6 z-50 p-4 bg-linear-to-br from-brand-500 to-brand-700 text-white rounded-2xl shadow-2xl shadow-brand-500/25 hover:shadow-brand-500/40 hover:scale-105 transition-all duration-300 group"
         id="chat-toggle"
       >
         <MessageCircle className="w-6 h-6 group-hover:scale-110 transition-transform" />
@@ -93,7 +122,7 @@ export default function ChatSidebar({ activeNoteId }) {
       {/* ── Header ───────────────────────────── */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-white/5">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-500 to-accent-500 flex items-center justify-center">
+          <div className="w-8 h-8 rounded-lg bg-linear-to-br from-brand-500 to-accent-500 flex items-center justify-center">
             <Sparkles className="w-4 h-4 text-white" />
           </div>
           <div>
@@ -189,6 +218,21 @@ export default function ChatSidebar({ activeNoteId }) {
 
         <div ref={messagesEndRef} />
       </div>
+
+      {/* ── Suggestions ────────────────────────── */}
+      {!isLoading && suggestions.length > 0 && (
+        <div className="px-4 py-2 flex flex-wrap gap-2 animate-fade-in">
+          {suggestions.map((s, i) => (
+            <button
+              key={i}
+              onClick={() => handleSuggestionClick(s)}
+              className="text-[10px] px-2.5 py-1.5 bg-brand-500/5 hover:bg-brand-500/10 border border-brand-500/10 hover:border-brand-500/20 text-brand-300 rounded-full transition-all text-left max-w-full truncate"
+            >
+              {s}
+            </button>
+          ))}
+        </div>
+      )}
 
       {/* ── Input ────────────────────────────── */}
       <div className="p-3 border-t border-white/5">
