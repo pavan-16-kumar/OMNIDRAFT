@@ -1,0 +1,41 @@
+======================================================================
+  OmniDraft — Extracted Text
+  Source: Screenshot 2026-02-25 at 11.36.07.png
+  Date: 2026-02-26 13:58:47 UTC
+  Note ID: b8aaff46-954c-4810-bc2d-bcfaea44815c
+======================================================================
+
+# Materials Management
+
+## Material Cost Analysis
+
+The average material cost is **64%** of the sales value. The only **36%** cost is for wages and salaries, overhead and profit, etc.
+
+In addition to the cost of material **64%**, inventory carrying cost be **20%** of the material cost. Thus the total material cost will be **77%** of the sales revenue [64% plus 20% of 64%]. This shows the importance of materials management.
+
+Material Management will increase the productivity of the capital by preventing capital being locked up.
+
+---
+
+## Objectives of Material Management
+
+1.  To reduce material cost which in turn reduce the cost of the product.
+2.  To control inventories efficiently.
+3.  To ensure Uniform flow of material.
+4.  To ensure right quality and quantity from right suppliers.
+5.  To ensure maximum Utilisation.
+
+---
+
+## Functions of Material Management
+
+1.  Material planning
+2.  Procurement of materials
+3.  Receiving and warehousing
+4.  Storage and Store administration
+5.  Inventory control
+6.  Standardisation, Simplification and Value analysis
+
+======================================================================
+  End of extracted text
+======================================================================
