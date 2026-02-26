@@ -290,7 +290,17 @@ async def upload_and_process(file: UploadFile = File(...)):
         note.status = ProcessingStatus.FAILED
         save_notes_db()
         logger.error("❌ Processing failed for %s: %s", note_id, e, exc_info=True)
-        raise HTTPException(500, f"Processing failed: {str(e)}")
+        
+        # Provide user-friendly error messages for common API issues
+        err_str = str(e).lower()
+        if "api key" in err_str or "leaked" in err_str or "permission" in err_str:
+            raise HTTPException(500, "API key error: Your API key is invalid or has been revoked. Please update your API key in the .env file.")
+        elif "401" in err_str or "unauthorized" in err_str or "authentication" in err_str:
+            raise HTTPException(500, "Authentication failed: Your API key is invalid. Please check your .env configuration.")
+        elif "quota" in err_str or "rate" in err_str or "limit" in err_str:
+            raise HTTPException(429, "Rate limit exceeded. Please wait a moment and try again.")
+        else:
+            raise HTTPException(500, f"Processing failed: {str(e)}")
 
     save_notes_db()
     return note

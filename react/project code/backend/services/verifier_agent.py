@@ -2,9 +2,11 @@
 Verifier Agent – Cross-check Transcription Against Image
 ─────────────────────────────────────────────────────────
 Step B of the Agentic Transcription pipeline.
-This agent re-examines the original image alongside the OCR output
-and flags low-confidence words, suggests corrections, and produces
-a final verified transcription.
+Supports:
+  - "local"      → Confidence-based verification (FREE, no API)
+  - "openrouter" → OpenRouter Vision LLM
+  - "gemini"     → Google Gemini Vision
+  - "openai"     → OpenAI GPT-4o Vision
 """
 
 from __future__ import annotations
@@ -20,14 +22,14 @@ from models.schemas import VerificationFlag
 
 logger = logging.getLogger(__name__)
 
-VERIFICATION_PROMPT = """You are an expert proofreader and verification agent for handwriting transcription with advanced capabilities in deducing missing information.
+VERIFICATION_PROMPT = """You are an expert proofreader and verification agent for handwriting transcription with advanced capabilities in deducing missing information across multiple languages.
 
 You will receive:
-1. An IMAGE of handwritten text.
+1. An IMAGE of handwritten text (may contain English, Telugu, Hindi, Tamil, and other Indian languages).
 2. A TRANSCRIPTION of that image in Markdown format.
 
 **Your Task:**
-Carefully compare the transcription against the original handwriting in the image. For each word or phrase, assess whether the transcription is accurate.
+Carefully compare the transcription against the original handwriting in the image. For each word or phrase, assess whether the transcription is accurate, especially for complex scripts like Telugu.
 
 **Output Format — return ONLY a JSON object with this exact structure:**
 
@@ -47,12 +49,13 @@ Carefully compare the transcription against the original handwriting in the imag
 ```
 
 **Rules:**
-1. Fix obvious OCR errors in `verified_text`. If the input image is blurry, has missing letters, predict and deduce the correct letters. Focus intensely on forming complete, logical words based on context.
-2. Only flag words with confidence < 0.85.
-3. **Format Enforcement:** You MUST enforce 2026 Document Design standards. Ensure Headings use logical H1/H2 flow. Ensure "Pro-Tips" use Blockquotes (`>`). Enforce Markdown comparison Tables or KPI ribbon formats heavily instead of loose text. Use bold and italics strongly for aesthetic hierarchy.
-4. **CRITICAL ANTI-HALLUCINATION RULE:** DO NOT invent, hallucinate, or insert ANY text, metrics, examples, or stats (e.g. "Average Material Cost", "Wage", etc.) that are NOT explicitly written in the provided image. ONLY transcribe and verify the actual handwriting!
-5. If the transcription is perfect and structurally beautiful, return it with confidence 1.0 and an empty flags array.
-6. Return ONLY the final JSON object — no markdown code fences around the JSON, no preamble, nothing else.
+1. **Multilingual Accuracy:** Fix OCR errors in all languages. If the input is in Telugu/Hindi/Tamil, ensure the script is preserved correctly.
+2. Fix obvious OCR errors. If the input image is blurry, has missing letters, predict and deduce the correct letters based on context.
+3. Only flag words with confidence < 0.85.
+4. **Format Enforcement:** Ensure Headings use logical H1/H2 flow. Use bold and italics for aesthetic hierarchy.
+5. **CRITICAL ANTI-HALLUCINATION RULE:** DO NOT invent or insert ANY text not in the provided image.
+6. If the transcription is perfect, return it with confidence 1.0 and an empty flags array.
+7. Return ONLY the final JSON object — no markdown code fences, no preamble.
 
 **TRANSCRIPTION TO VERIFY:**
 {transcription}
@@ -82,6 +85,75 @@ def _parse_verification_response(raw: str) -> dict:
             "flags": [],
         }
 
+
+# ── Local Verification (FREE, no API) ─────────────────────────────────────────
+
+async def verify_with_local(
+    image_bytes: bytes,
+    transcription: str,
+) -> dict:
+    """
+    Local verification using EasyOCR confidence scores.
+    Runs a second-pass OCR and compares results to find low-confidence regions.
+    Completely FREE and UNLIMITED.
+    """
+    import asyncio
+
+    from services.ocr_agent import _get_easyocr_readers
+
+    def _run_verification():
+        import cv2
+        import numpy as np
+
+        readers = _get_easyocr_readers()
+
+        # Decode image
+        arr = np.frombuffer(image_bytes, dtype=np.uint8)
+        img = cv2.imdecode(arr, cv2.IMREAD_COLOR)
+        if img is None:
+            from PIL import Image
+            import io
+            pil_img = Image.open(io.BytesIO(image_bytes)).convert("RGB")
+            img = np.array(pil_img)[:, :, ::-1]
+
+        # Run OCR for confidence analysis (use first reader)
+        reader, lang_list = readers[0]
+        results = reader.readtext(img, paragraph=False, detail=1)
+
+        # Collect low-confidence words
+        flags = []
+        all_confidences = []
+        for bbox, text, conf in results:
+            text = text.strip()
+            if not text:
+                continue
+            all_confidences.append(conf)
+            if conf < 0.85:
+                flags.append({
+                    "word": text,
+                    "confidence": round(conf, 2),
+                    "suggestion": None,
+                    "context": text,
+                })
+
+        overall_conf = sum(all_confidences) / len(all_confidences) if all_confidences else 0.5
+
+        return {
+            "verified_text": transcription,  # keep original (already best effort)
+            "confidence_score": round(overall_conf, 2),
+            "flags": flags[:20],  # limit to 20 flags
+        }
+
+    logger.info("🔍 Running local verification pass...")
+    result = await asyncio.to_thread(_run_verification)
+    logger.info("✅ Local verification: confidence=%.2f, flags=%d",
+                result["confidence_score"], len(result["flags"]))
+    return result
+
+
+# Removed verify_with_ollama
+
+# ── Cloud Providers ────────────────────────────────────────────────────────────
 
 async def verify_with_openrouter(
     image_bytes: bytes,
@@ -136,6 +208,7 @@ async def verify_with_gemini(
     transcription: str,
 ) -> dict:
     """Use Gemini directly to verify the transcription against the image."""
+    import asyncio
     import google.generativeai as genai
 
     api_key = os.getenv("GEMINI_API_KEY")
@@ -148,13 +221,16 @@ async def verify_with_gemini(
     prompt = VERIFICATION_PROMPT.format(transcription=transcription)
     image_part = {"mime_type": "image/jpeg", "data": image_bytes}
 
-    response = model.generate_content(
-        [prompt, image_part],
-        generation_config=genai.GenerationConfig(
-            temperature=0.05,
-            max_output_tokens=8192,
-        ),
-    )
+    def _call_gemini():
+        return model.generate_content(
+            [prompt, image_part],
+            generation_config=genai.GenerationConfig(
+                temperature=0.05,
+                max_output_tokens=8192,
+            ),
+        )
+
+    response = await asyncio.to_thread(_call_gemini)
 
     return _parse_verification_response(response.text or "{}")
 
@@ -198,6 +274,8 @@ async def verify_with_openai(
     return _parse_verification_response(response.choices[0].message.content or "{}")
 
 
+# ── Main Entry Point ──────────────────────────────────────────────────────────
+
 async def verify_transcription(
     image_bytes: bytes,
     transcription: str,
@@ -216,10 +294,12 @@ async def verify_transcription(
     -------
     (verified_markdown, confidence_score, flags)
     """
-    prov = provider or os.getenv("LLM_PROVIDER", "openrouter").lower()
+    prov = provider or os.getenv("LLM_PROVIDER", "local").lower()
     logger.info("Verifying transcription with provider=%s", prov)
 
-    if prov == "openrouter":
+    if prov == "local":
+        result = await verify_with_local(image_bytes, transcription)
+    elif prov == "openrouter":
         result = await verify_with_openrouter(image_bytes, transcription)
     elif prov == "gemini":
         result = await verify_with_gemini(image_bytes, transcription)

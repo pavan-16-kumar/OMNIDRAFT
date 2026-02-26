@@ -127,7 +127,7 @@ async def chat_with_notes(
     Returns (answer, list_of_source_note_ids).
     """
     collection = _get_chroma()
-    llm = _get_llm()
+    provider = os.getenv("LLM_PROVIDER", "local").lower()
 
     # Build filter
     where_filter = {"note_id": note_id} if note_id else None
@@ -150,8 +150,9 @@ async def chat_with_notes(
     context = "\n\n---\n\n".join(documents)
     source_ids = list({m.get("note_id", "") for m in metadatas if m})
 
-    prompt = f"""You are a helpful assistant answering questions about the user's handwritten notes.
+    chat_prompt = f"""You are a helpful multilingual assistant answering questions about the user's handwritten notes.
 Use ONLY the following context from their notes to answer. If the answer is not in the context, say so.
+You should respond in the same language as the user's question or the notes (e.g., if the question is in Telugu, answer in Telugu).
 
 **Context from notes:**
 {context}
@@ -160,7 +161,12 @@ Use ONLY the following context from their notes to answer. If the answer is not 
 
 **Answer:**"""
 
-    response = llm.invoke(prompt)
+    # Removed Ollama chat mode
+
+    # ── Cloud mode: use LangChain LLM to generate an answer ──
+    llm = _get_llm()
+
+    response = llm.invoke(chat_prompt)
     answer = response.content if hasattr(response, "content") else str(response)
 
     return answer.strip(), source_ids

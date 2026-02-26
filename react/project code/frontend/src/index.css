@@ -44,7 +44,9 @@
   --color-surface-overlay: #1e2230;
   --color-surface-card: rgba(30, 34, 48, 0.7);
 
-  --font-sans: "Inter", "SF Pro Display", system-ui, -apple-system, sans-serif;
+  --font-sans:
+    "Inter", "SF Pro Display", "Noto Sans Telugu", system-ui, -apple-system,
+    sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", "SF Mono", monospace;
 }
 
