@@ -1,0 +1,26 @@
+======================================================================
+  OmniDraft — Extracted Text
+  Source: Screenshot 2026-02-24 at 21.20.42.png
+  Date: 2026-02-26 08:45:26 UTC
+  Note ID: 7e0c7843-9f80-4f1e-b3f6-b7ce42b62f67
+======================================================================
+
+# Java Script
+
+## Introduction to JavaScript
+
+-   Java Script is a client side Scripting language & it allows creating dynamic webpages.
+
+-   Scripting language is used to enhance the features of websites.
+
+-   The data which is transtor from Client System to Surver system, inclient-Surver Communication Controlled with help of Java Script.
+
+---
+
+Need for client side Scripting language
+
+-   client side Scripting language can
+
+======================================================================
+  End of extracted text
+======================================================================

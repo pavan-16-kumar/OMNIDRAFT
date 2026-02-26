@@ -15,8 +15,13 @@ import re
 import shutil
 import uuid
 from datetime import datetime
+from io import BytesIO
 from pathlib import Path
 from typing import Optional
+
+from pydantic import BaseModel
+
+import edge_tts
 
 from dotenv import load_dotenv
 from fastapi import FastAPI, File, HTTPException, Query, UploadFile
@@ -440,6 +445,118 @@ async def chat(request: ChatRequest):
     except Exception as e:
         logger.error("Chat failed: %s", e, exc_info=True)
         raise HTTPException(500, f"Chat failed: {str(e)}")
+
+
+# ── Text-to-Speech (edge-tts — Microsoft Neural, FREE & UNLIMITED) ────────────
+
+# Best neural voice for every language (Microsoft Edge TTS voices)
+_TTS_VOICES: dict[str, str] = {
+    # Indian languages
+    "te-IN": "te-IN-ShrutiNeural",   # Telugu  — Female, very clear
+    "ta-IN": "ta-IN-PallaviNeural",  # Tamil   — Female
+    "hi-IN": "hi-IN-SwaraNeural",    # Hindi   — Female
+    "kn-IN": "kn-IN-SapnaNeural",    # Kannada — Female
+    "ml-IN": "ml-IN-SobhanaNeural",  # Malayalam — Female
+    "bn-IN": "bn-IN-TanishaaNeural", # Bengali — Female
+    "gu-IN": "gu-IN-DhwaniNeural",   # Gujarati — Female
+    "mr-IN": "mr-IN-AarohiNeural",   # Marathi — Female
+    "or-IN": "or-IN-SubhasiniNeural",# Odia — Female
+    "pa-IN": "pa-IN-OjasNeural",     # Punjabi — Male (only option)
+    "ur-PK": "ur-PK-AsadNeural",     # Urdu
+    "si-LK": "si-LK-ThiliniNeural",  # Sinhala
+    # English
+    "en-US": "en-US-AriaNeural",     # Best US English — very natural
+    "en-IN": "en-IN-NeerjaNeural",   # Indian English
+    "en-GB": "en-GB-SoniaNeural",    # British English
+    # East Asian
+    "zh-CN": "zh-CN-XiaoxiaoNeural",
+    "zh-TW": "zh-TW-HsiaoChenNeural",
+    "ja-JP": "ja-JP-NanamiNeural",
+    "ko-KR": "ko-KR-SunHiNeural",
+    # Middle East / Africa
+    "ar-SA": "ar-SA-ZariyahNeural",
+    "he-IL": "he-IL-HilaNeural",
+    # Southeast Asia
+    "th-TH": "th-TH-PremwadeeNeural",
+    "id-ID": "id-ID-GadisNeural",
+    "ms-MY": "ms-MY-YasminNeural",
+    "vi-VN": "vi-VN-HoaiMyNeural",
+    # European
+    "ru-RU": "ru-RU-SvetlanaNeural",
+    "fr-FR": "fr-FR-DeniseNeural",
+    "de-DE": "de-DE-KatjaNeural",
+    "es-ES": "es-ES-ElviraNeural",
+    "pt-BR": "pt-BR-FranciscaNeural",
+    "it-IT": "it-IT-ElsaNeural",
+    "nl-NL": "nl-NL-ColetteNeural",
+    "pl-PL": "pl-PL-ZofiaNeural",
+    "el-GR": "el-GR-AthinaNeural",
+    "tr-TR": "tr-TR-EmelNeural",
+    "uk-UA": "uk-UA-OstapNeural",
+    "ka-GE": "ka-GE-EkaNeural",
+}
+
+
+def _rate_to_edge(rate: float) -> str:
+    """Convert 0.5–2.0 rate float to edge-tts '+/-N%' format."""
+    pct = int(round((rate - 1.0) * 100))
+    return f"+{pct}%" if pct >= 0 else f"{pct}%"
+
+
+class TTSRequest(BaseModel):
+    text: str
+    lang: str = "en-US"   # BCP-47 language code
+    rate: float = 0.92    # 0.5 – 2.0; 0.92 = clearest
+    voice: Optional[str] = None  # override voice name
+
+
+@app.post("/tts", tags=["TTS"])
+async def text_to_speech(req: TTSRequest):
+    """
+    Convert text to speech using Microsoft Edge TTS neural voices.
+    Returns MP3 audio bytes. FREE and UNLIMITED.
+    """
+    raw = req.text.strip()
+    if not raw:
+        raise HTTPException(400, "Text is empty")
+
+    # Clean markdown for natural spoken reading
+    clean = re.sub(r"#{1,6}\s+", "", raw)
+    clean = re.sub(r"\*{1,2}([^*]+)\*{1,2}", r"\1", clean)
+    clean = re.sub(r"`{1,3}[^`]*`{1,3}", "", clean)
+    clean = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", clean)
+    clean = re.sub(r"---+", "", clean)
+    clean = re.sub(r"\n{2,}", ". ", clean)
+    clean = re.sub(r"\n", " ", clean)
+    clean = clean.strip()[:12000]  # cap at 12k chars to avoid timeout
+
+    voice = req.voice or _TTS_VOICES.get(req.lang, _TTS_VOICES["en-US"])
+    rate_str = _rate_to_edge(req.rate)
+
+    logger.info("🔊 TTS: lang=%s voice=%s rate=%s len=%d", req.lang, voice, rate_str, len(clean))
+
+    try:
+        communicate = edge_tts.Communicate(clean, voice, rate=rate_str)
+        buf = BytesIO()
+        async for chunk in communicate.stream():
+            if chunk["type"] == "audio":
+                buf.write(chunk["data"])
+        buf.seek(0)
+        content = buf.read()
+
+        if not content:
+            raise HTTPException(500, "edge-tts returned no audio — check internet connection")
+
+        return Response(
+            content=content,
+            media_type="audio/mpeg",
+            headers={"Cache-Control": "no-cache", "Content-Disposition": "inline"},
+        )
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error("TTS error: %s", e)
+        raise HTTPException(500, f"TTS failed: {e}")
 
 
 # ── Run ────────────────────────────────────────────────────────────────────────

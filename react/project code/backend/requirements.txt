@@ -37,3 +37,6 @@ pydantic==2.10.5
 aiofiles==24.1.0
 numpy==2.2.2
 httpx==0.28.1
+
+# === Text-to-Speech (FREE, UNLIMITED — Microsoft Neural Voices) ===
+edge-tts>=6.1.9

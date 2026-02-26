@@ -5,6 +5,7 @@ import {
   Save, X, ChevronDown, ZoomIn, ZoomOut, RotateCw 
 } from 'lucide-react';
 import { updateNoteText } from '../api/client';
+import TextToSpeech from './TextToSpeech';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
 
@@ -83,7 +84,7 @@ export default function SideBySideView({ note, onTextUpdate }) {
         {/* Progress bar */}
         <div className="w-full h-1.5 bg-dark-700 rounded-full overflow-hidden">
           <div
-            className={`h-full rounded-full bg-gradient-to-r ${getConfidenceColor(note.confidence_score)} transition-all duration-1000`}
+            className={`h-full rounded-full bg-linear-to-r ${getConfidenceColor(note.confidence_score)} transition-all duration-1000`}
             style={{ width: `${confidencePercent}%` }}
           />
         </div>
@@ -113,6 +114,9 @@ export default function SideBySideView({ note, onTextUpdate }) {
           </div>
         )}
       </div>
+
+      {/* ── Text-to-Speech Player ────────────────────────────── */}
+      <TextToSpeech text={displayText} />
 
       {/* ── Side-by-Side Panels ────────────────────────────── */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
